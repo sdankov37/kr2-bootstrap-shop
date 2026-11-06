@@ -4,10 +4,6 @@ body {
   min-height: 100vh;
 }
 
-.placeholder-box {
-  min-height: 240px;
-}
-
 .placeholder-image {
   min-height: 320px;
 }
@@ -15,4 +11,25 @@ body {
 .card-img-top {
   height: 180px;
   object-fit: cover;
+}
+
+/* Hero-блок с фоном */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)),
+              url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  min-height: 70vh;
+}
+
+/* Sticky-фильтры каталога на больших экранах */
+.catalog-filters {
+  position: sticky;
+  top: 80px;
+}
+@media (max-width: 991px) {
+  .catalog-filters { position: static; }
+}
+
+/* Кнопка «Наверх» */
+.scroll-top-btn {
+  z-index: 1050;
 }

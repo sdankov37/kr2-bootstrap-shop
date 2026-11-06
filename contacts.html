@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="О студии Iron Vanguard Studios — история, команда, контакты, FAQ.">
+  <title>О студии — Iron Vanguard Studios</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="bg-dark text-light">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top border-bottom border-secondary">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-uppercase" href="index.html">Iron Vanguard</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+          <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог игр</a></li>
+          <li class="nav-item"><a class="nav-link" href="product.html">Игра</a></li>
+          <li class="nav-item"><a class="nav-link" href="order.html">Заявка</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="contacts.html">О студии</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html" class="text-primary">Главная</a></li>
+        <li class="breadcrumb-item active text-secondary" aria-current="page">О студии</li>
+      </ol>
+    </nav>
+
+    <h1 class="mb-5">О студии Iron Vanguard</h1>
+
+    <section class="mb-5">
+      <h2 class="h3 mb-3">Наша история</h2>
+      <p class="text-secondary">Студия Iron Vanguard Studios была основана в 2018 году группой энтузиастов, выросших на классических RTS. Начав с небольших модов, мы решили создать собственную игру, которая бы объединила глубокую тактику и современные технологии. Сегодня мы — команда из 25 человек, объединённых любовью к жанру.</p>
+    </section>
+
+    <section class="mb-5">
+      <h2 class="h3 mb-3">Команда</h2>
+      <div class="row g-4">
+        <div class="col-md-4"><div class="p-4 border border-secondary rounded bg-black text-center h-100"><div class="rounded-circle bg-secondary mx-auto mb-3" style="width:100px;height:100px;"></div><h3 class="h5">Александр Иванов</h3><p class="text-primary mb-1">Геймдиректор</p><p class="text-secondary small mb-0">Отвечает за видение проекта и баланс.</p></div></div>
+        <div class="col-md-4"><div class="p-4 border border-secondary rounded bg-black text-center h-100"><div class="rounded-circle bg-secondary mx-auto mb-3" style="width:100px;height:100px;"></div><h3 class="h5">Мария Петрова</h3><p class="text-primary mb-1">Ведущий программист</p><p class="text-secondary small mb-0">Мастер оптимизации и сетевого кода.</p></div></div>
+        <div class="col-md-4"><div class="p-4 border border-secondary rounded bg-black text-center h-100"><div class="rounded-circle bg-secondary mx-auto mb-3" style="width:100px;height:100px;"></div><h3 class="h5">Дмитрий Соколов</h3><p class="text-primary mb-1">Арт-директор</p><p class="text-secondary small mb-0">Создает уникальный визуальный стиль студии.</p></div></div>
+      </div>
+    </section>
+
+    <div class="row g-5">
+      <div class="col-lg-5">
+        <h2 class="h3 mb-3">Контакты</h2>
+        <ul class="list-group list-group-flush bg-transparent mb-4">
+          <li class="list-group-item bg-transparent text-light border-secondary">📍 г. Москва, ул. Игровая, д. 15</li>
+          <li class="list-group-item bg-transparent text-light border-secondary">✉️ contact@ironvanguard.com</li>
+          <li class="list-group-item bg-transparent text-light border-secondary">📞 +7 (999) 123-45-67</li>
+        </ul>
+        <h3 class="h5 mb-3">Социальные сети</h3>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="#" class="btn btn-outline-light">Discord</a>
+          <a href="#" class="btn btn-outline-light">Telegram</a>
+          <a href="#" class="btn btn-outline-light">YouTube</a>
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <h2 class="h3 mb-3">FAQ</h2>
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item bg-black border-secondary">
+            <h2 class="accordion-header"><button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">Вы нанимаете сотрудников?</button></h2>
+            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-secondary">Да, мы всегда рады талантливым разработчикам и художникам. Отправляйте резюме на почту.</div></div>
+          </div>
+          <div class="accordion-item bg-black border-secondary">
+            <h2 class="accordion-header"><button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">Когда выйдет Shadow Protocol?</button></h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-secondary">Игра находится в активной разработке. Планируемый релиз — конец 2025 года. Следите за новостями.</div></div>
+          </div>
+          <div class="accordion-item bg-black border-secondary">
+            <h2 class="accordion-header"><button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Можно ли поиграть в ваши игры на консолях?</button></h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-secondary">Пока наши проекты ориентированы на PC. Мы рассматриваем портирование в будущем.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-black py-4 border-top border-secondary">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <p class="mb-2 mb-md-0 text-secondary">&copy; 2026 Iron Vanguard Studios. Все права защищены.</p>
+      <div>
+        <a href="#" class="text-secondary text-decoration-none me-3">Discord</a>
+        <a href="#" class="text-secondary text-decoration-none me-3">Telegram</a>
+        <a href="#" class="text-secondary text-decoration-none">YouTube</a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn" class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-4 d-none scroll-top-btn" style="width: 50px; height: 50px;">↑</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
