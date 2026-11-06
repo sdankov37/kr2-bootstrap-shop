@@ -1,35 +1,85 @@
-/* Минимальные стили поверх Bootstrap */
+:root {
+  --bs-border-radius: 2rem;
+  --bs-secondary-rgb: 255, 255, 255;
+  --bs-secondary-color-rgb: 255, 255, 255;
+  --bs-secondary-color: #ffffff;
+}
+
+.text-primary,
+.text-secondary,
+.text-body-secondary,
+.text-muted {
+  color: #ffffff !important;
+}
 
 body {
   min-height: 100vh;
+  background: linear-gradient(135deg, #c02e83 0%, #56199b 50%, #a52319 100%);
+  background-attachment: fixed;
 }
 
-.placeholder-image {
-  min-height: 320px;
-}
-
-.card-img-top {
-  height: 180px;
-  object-fit: cover;
-}
-
-/* Hero-блок с фоном */
+/* Hero-блок */
 .hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)),
-              url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-  min-height: 70vh;
+  background: rgba(84, 9, 155, 0.151);
+  min-height: 30vh;
 }
 
-/* Sticky-фильтры каталога на больших экранах */
-.catalog-filters {
-  position: sticky;
-  top: 80px;
-}
-@media (max-width: 991px) {
-  .catalog-filters { position: static; }
+/* --- Стекло: навбар --- */
+.navbar.sticky-top {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
 
-/* Кнопка «Наверх» */
-.scroll-top-btn {
-  z-index: 1050;
+/* --- Стекло: все блоки с фоном --- */
+.card,
+.bg-black:not(nav):not(footer),
+.catalog-filters,
+.accordion-item {
+  background-color: rgba(0, 0, 0, 0.35) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Внутренние обёртки карточек — прозрачные */
+.card-header,
+.card-body,
+.card-footer {
+  background-color: transparent !important;
+}
+
+/* Кнопки аккордеона (у них bg-dark) — тоже прозрачные */
+.accordion-button,
+.accordion-button.bg-dark {
+  background-color: transparent !important;
+}
+
+/* --- Стекло: модалка --- */
+.modal-content,
+.modal-content.bg-dark {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Залитая кнопка */
+.btn-primary {
+  --bs-btn-bg: #973e03d3;
+  --bs-btn-border-color: #973e03d3;
+  --bs-btn-color: #ffffff;
+  --bs-btn-hover-bg: #973e03d3;
+  --bs-btn-hover-border-color: #973e03d3;
+  --bs-btn-hover-color: #000;
+}
+
+/* Контурная кнопка */
+.btn-outline-primary {
+  --bs-btn-color: #ffffff;
+  --bs-btn-border-color: #ff6600a6;
+  --bs-btn-hover-bg: #973e03d3;
+  --bs-btn-hover-border-color: #973e03d3;
+  --bs-btn-hover-color: #ffffff;
 }
