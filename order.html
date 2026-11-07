@@ -12,7 +12,8 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top border-bottom border-secondary">
     <div class="container">
-      <a class="navbar-brand fw-bold text-uppercase" href="index.html">Iron Vanguard</a>
+      <a class="navbar-brand" href="index.html">
+        <img src="images/iron_logo.png" alt="Iron Vanguard Studios" class="navbar-logo navbar-logo--lg"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Переключить навигацию">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -29,6 +30,15 @@
   </nav>
 
   <main class="container my-5">
+    <main class="container my-5">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html" class="text-primary">Главная</a></li>
+      <li class="breadcrumb-item active text-secondary" aria-current="page">Заявка</li>
+    </ol>
+  </nav>
+
+  <div class="row justify-content-center">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-8">
         <div class="card bg-black border-secondary shadow-sm">
@@ -50,24 +60,24 @@
             <form id="orderForm" novalidate>
               <div class="row g-3">
                 <div class="col-12 col-md-6">
-                  <label for="order-name" class="form-label">Имя *</label>
+                  <label for="order-name" class="form-label; text-white">Имя *</label>
                   <input id="order-name" name="name" type="text" class="form-control bg-dark text-light border-secondary" required>
                   <div class="invalid-feedback">Введите имя.</div>
                 </div>
                 <div class="col-12 col-md-6">
-                  <label for="order-email" class="form-label">E-mail *</label>
+                  <label for="order-email" class="form-label; text-white">E-mail *</label>
                   <input id="order-email" name="email" type="email" class="form-control bg-dark text-light border-secondary" required>
                   <div class="invalid-feedback">Введите корректный e-mail.</div>
                 </div>
                 <div class="col-12 col-md-6">
-                  <label for="order-phone" class="form-label">Телефон</label>
+                  <label for="order-phone" class="form-label; text-white">Телефон</label>
                   <div class="input-group">
                     <span class="input-group-text bg-secondary text-light border-secondary">+7</span>
                     <input id="order-phone" name="phone" type="tel" class="form-control bg-dark text-light border-secondary" placeholder="900 000-00-00">
                   </div>
                 </div>
                 <div class="col-12 col-md-6">
-                  <label for="order-game" class="form-label">Игра</label>
+                  <label for="order-game" class="form-label; text-white">Игра</label>
                   <select id="order-game" name="game" class="form-select bg-dark text-light border-secondary">
                     <option value="">Выберите игру</option>
                     <option value="iron-vanguard">Iron Vanguard: Frontline</option>
@@ -77,19 +87,19 @@
                   </select>
                 </div>
                 <div class="col-12">
-                  <label for="order-comment" class="form-label">Комментарий</label>
+                  <label for="order-comment" class="form-label; text-white">Комментарий</label>
                   <textarea id="order-comment" name="comment" class="form-control bg-dark text-light border-secondary" rows="4"></textarea>
                 </div>
                 <div class="col-12">
                   <div class="form-check">
                     <input id="order-agree" class="form-check-input" type="checkbox" required>
-                    <label class="form-check-label" for="order-agree">Я согласен на обработку данных *</label>
+                    <label class="form-check-label; text-white" for="order-agree">Я согласен на обработку данных *</label>
                     <div class="invalid-feedback">Обязательное поле.</div>
                   </div>
                 </div>
                 <div class="col-12 d-flex gap-2 mt-4">
                   <button class="btn btn-primary" type="submit">Отправить заявку</button>
-                  <button class="btn btn-outline-secondary" type="reset">Очистить</button>
+                  <button class="btn btn-outline-secondary; text-white" type="reset">Очистить</button>
                 </div>
               </div>
             </form>
@@ -99,7 +109,7 @@
     </div>
   </main>
 
-  <footer class="bg-black py-4 border-top border-secondary">
+  <footer class="bg-black py-4 border-top border-secondary fixed-bottom">
     <div class="container">
       <div class="row align-items-center g-3">
         <div class="col-12 col-md-6">

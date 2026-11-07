@@ -3,6 +3,13 @@
   --bs-secondary-rgb: 255, 255, 255;
   --bs-secondary-color-rgb: 255, 255, 255;
   --bs-secondary-color: #ffffff;
+
+  /* Палитра проекта */
+  --color-white: #ffffff;
+  --color-ink: #1a0a05;        /* тёмный тёплый для текста на белом */
+  --color-accent: #f05a14;     /* оранжевый, средний градиента */
+  --color-accent-dark: #bb280e; /* тёмно-красный, hover */
+  --color-accent-deep: #7a1a0a; /* самый тёмный, active */
 }
 
 .text-primary,
@@ -14,72 +21,188 @@
 
 body {
   min-height: 100vh;
-  background: linear-gradient(135deg, #c02e83 0%, #56199b 50%, #a52319 100%);
+  background: linear-gradient(135deg, #7a1a0a 0%, #bb280e 30%, #f05a14 60%, #d82418 100%);
   background-attachment: fixed;
 }
 
-/* Hero-блок */
+/* Hero */
 .hero {
-  background: rgba(84, 9, 155, 0.151);
+  background: linear-gradient(135deg, rgba(122, 26, 10, 0.55) 0%, rgba(240, 90, 20, 0.45) 100%);
   min-height: 30vh;
 }
 
-/* --- Стекло: навбар --- */
+/* --- навбар --- */
 .navbar.sticky-top {
-  background-color: rgba(0, 0, 0, 0.3) !important;
+  background-color: rgba(26, 10, 5, 0.4) !important;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
 
-/* --- Стекло: все блоки с фоном --- */
+/* --- карточки, фильтры, аккордеон --- */
 .card,
 .bg-black:not(nav):not(footer),
 .catalog-filters,
 .accordion-item {
-  background-color: rgba(0, 0, 0, 0.35) !important;
+  background-color: rgba(26, 10, 5, 0.35) !important;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
 
-/* Внутренние обёртки карточек — прозрачные */
 .card-header,
 .card-body,
 .card-footer {
   background-color: transparent !important;
 }
 
-/* Кнопки аккордеона (у них bg-dark) — тоже прозрачные */
 .accordion-button,
 .accordion-button.bg-dark {
   background-color: transparent !important;
 }
 
-/* --- Стекло: модалка --- */
+/* --- модалка --- */
 .modal-content,
 .modal-content.bg-dark {
-  background-color: rgba(0, 0, 0, 0.5) !important;
+  background-color: rgba(26, 10, 5, 0.6) !important;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 
-/* Залитая кнопка */
+/* ===============================================
+   Кнопки: белые - тёмнеют при наведении
+   =============================================== */
+
+/* Основная — белая с тёмным текстом, темнеет на hover */
 .btn-primary {
-  --bs-btn-bg: #973e03d3;
-  --bs-btn-border-color: #973e03d3;
-  --bs-btn-color: #ffffff;
-  --bs-btn-hover-bg: #973e03d3;
-  --bs-btn-hover-border-color: #973e03d3;
-  --bs-btn-hover-color: #000;
+  --bs-btn-bg: var(--color-white);
+  --bs-btn-border-color: var(--color-white);
+  --bs-btn-color: var(--color-ink);
+  --bs-btn-hover-bg: var(--color-accent-dark);
+  --bs-btn-hover-border-color: var(--color-accent-dark);
+  --bs-btn-hover-color: var(--color-white);
+  --bs-btn-active-bg: var(--color-accent-deep);
+  --bs-btn-active-border-color: var(--color-accent-deep);
+  --bs-btn-active-color: var(--color-white);
+  --bs-btn-disabled-bg: var(--color-white);
+  --bs-btn-disabled-border-color: var(--color-white);
+  --bs-btn-disabled-color: var(--color-ink);
+  font-weight: 600;
 }
 
-/* Контурная кнопка */
+/* Контурная — белый контур, при наведении заливается белым */
 .btn-outline-primary {
-  --bs-btn-color: #ffffff;
-  --bs-btn-border-color: #ff6600a6;
-  --bs-btn-hover-bg: #973e03d3;
-  --bs-btn-hover-border-color: #973e03d3;
-  --bs-btn-hover-color: #ffffff;
+  --bs-btn-color: var(--color-white);
+  --bs-btn-border-color: var(--color-white);
+  --bs-btn-hover-bg: var(--color-white);
+  --bs-btn-hover-border-color: var(--color-white);
+  --bs-btn-hover-color: var(--color-ink);
+  --bs-btn-active-bg: var(--color-accent-dark);
+  --bs-btn-active-border-color: var(--color-accent-dark);
+  --bs-btn-active-color: var(--color-white);
+}
+
+/* Контурная светлая (в hero) — тот же паттерн */
+.btn-outline-light {
+  --bs-btn-color: var(--color-white);
+  --bs-btn-border-color: var(--color-white);
+  --bs-btn-hover-bg: var(--color-white);
+  --bs-btn-hover-border-color: var(--color-white);
+  --bs-btn-hover-color: var(--color-ink);
+}
+
+/* --- Логотип в navbar --- */
+.navbar-logo {
+  height: 72px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 2rem;
+}
+
+/* ===============================================
+   Поля формы
+   =============================================== */
+
+/* --- Поля ввода, textarea, select --- */
+.form-control,
+.form-select {
+  background-color: rgba(0, 0, 0, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:hover,
+.form-select:hover {
+  background-color: rgba(0, 0, 0, 0.45) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  border-color: #f05a14 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0 3px rgba(240, 90, 20, 0.25) !important;
+}
+
+/* --- Placeholder --- */
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+  opacity: 1;
+}
+
+/* --- Опции в select --- */
+.form-select option {
+  background-color: #1a0a05;
+  color: #ffffff;
+}
+
+/* --- Префикс в input-group («+7») --- */
+.input-group-text {
+  background-color: rgba(240, 90, 20, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+}
+
+/* --- Checkbox --- */
+.form-check-input {
+  background-color: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.form-check-input:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.form-check-input:checked {
+  background-color: #f05a14;
+  border-color: #f05a14;
+}
+
+.form-check-input:focus {
+  border-color: #f05a14;
+  box-shadow: 0 0 0 3px rgba(240, 90, 20, 0.25);
+}
+
+/* --- Подписи полей --- */
+.form-label {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* --- Ошибки валидации --- */
+.invalid-feedback {
+  color: #ff9a8a;  /* тёплый розовый — читается на тёмном */
+}
+
+.was-validated .form-control:invalid,
+.was-validated .form-select:invalid {
+  border-color: #ff6b4a !important;
+}
+
+.was-validated .form-control:valid,
+.was-validated .form-select:valid {
+  border-color: rgba(255, 255, 255, 0.3) !important;  /* не зелёная, чтобы не спорила с палитрой */
 }
