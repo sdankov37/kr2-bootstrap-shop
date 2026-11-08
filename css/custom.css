@@ -4,14 +4,14 @@
   --bs-secondary-color-rgb: 255, 255, 255;
   --bs-secondary-color: #ffffff;
 
-  /* Палитра проекта */
   --color-white: #ffffff;
-  --color-ink: #1a0a05;        /* тёмный тёплый для текста на белом */
-  --color-accent: #f05a14;     /* оранжевый, средний градиента */
-  --color-accent-dark: #bb280e; /* тёмно-красный, hover */
-  --color-accent-deep: #7a1a0a; /* самый тёмный, active */
+  --color-ink: #1a0a05;
+  --color-accent: #f05a14;
+  --color-accent-dark: #bb280e;
+  --color-accent-deep: #7a1a0a;
 }
 
+/* --- Текст --- */
 .text-primary,
 .text-secondary,
 .text-body-secondary,
@@ -19,19 +19,26 @@
   color: #ffffff !important;
 }
 
+/* --- Фон --- */
 body {
   min-height: 100vh;
   background: linear-gradient(135deg, #7a1a0a 0%, #bb280e 30%, #f05a14 60%, #d82418 100%);
   background-attachment: fixed;
+  animation: pageFadeIn 0.3s ease-in;
 }
 
-/* Hero */
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* --- Hero --- */
 .hero {
   background: linear-gradient(135deg, rgba(122, 26, 10, 0.55) 0%, rgba(240, 90, 20, 0.45) 100%);
   min-height: 30vh;
 }
 
-/* --- навбар --- */
+/* --- Навбар --- */
 .navbar.sticky-top {
   background-color: rgba(26, 10, 5, 0.4) !important;
   backdrop-filter: blur(14px);
@@ -39,7 +46,7 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
 
-/* --- карточки, фильтры, аккордеон --- */
+/* --- Стекло: карточки, фильтры, аккордеон --- */
 .card,
 .bg-black:not(nav):not(footer),
 .catalog-filters,
@@ -61,7 +68,7 @@ body {
   background-color: transparent !important;
 }
 
-/* --- модалка --- */
+/* --- Модалка --- */
 .modal-content,
 .modal-content.bg-dark {
   background-color: rgba(26, 10, 5, 0.6) !important;
@@ -71,10 +78,8 @@ body {
 }
 
 /* ===============================================
-   Кнопки: белые - тёмнеют при наведении
+   Кнопки
    =============================================== */
-
-/* Основная — белая с тёмным текстом, темнеет на hover */
 .btn-primary {
   --bs-btn-bg: var(--color-white);
   --bs-btn-border-color: var(--color-white);
@@ -91,7 +96,6 @@ body {
   font-weight: 600;
 }
 
-/* Контурная — белый контур, при наведении заливается белым */
 .btn-outline-primary {
   --bs-btn-color: var(--color-white);
   --bs-btn-border-color: var(--color-white);
@@ -103,7 +107,6 @@ body {
   --bs-btn-active-color: var(--color-white);
 }
 
-/* Контурная светлая (в hero) — тот же паттерн */
 .btn-outline-light {
   --bs-btn-color: var(--color-white);
   --bs-btn-border-color: var(--color-white);
@@ -112,7 +115,7 @@ body {
   --bs-btn-hover-color: var(--color-ink);
 }
 
-/* --- Логотип в navbar --- */
+/* --- Логотип --- */
 .navbar-logo {
   height: 72px;
   width: auto;
@@ -123,8 +126,6 @@ body {
 /* ===============================================
    Поля формы
    =============================================== */
-
-/* --- Поля ввода, textarea, select --- */
 .form-control,
 .form-select {
   background-color: rgba(0, 0, 0, 0.35) !important;
@@ -147,26 +148,22 @@ body {
   box-shadow: 0 0 0 3px rgba(240, 90, 20, 0.25) !important;
 }
 
-/* --- Placeholder --- */
 .form-control::placeholder {
   color: rgba(255, 255, 255, 0.4) !important;
   opacity: 1;
 }
 
-/* --- Опции в select --- */
 .form-select option {
   background-color: #1a0a05;
   color: #ffffff;
 }
 
-/* --- Префикс в input-group («+7») --- */
 .input-group-text {
   background-color: rgba(240, 90, 20, 0.15) !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
   color: #ffffff !important;
 }
 
-/* --- Checkbox --- */
 .form-check-input {
   background-color: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.4);
@@ -186,15 +183,13 @@ body {
   box-shadow: 0 0 0 3px rgba(240, 90, 20, 0.25);
 }
 
-/* --- Подписи полей --- */
 .form-label {
   color: #ffffff;
   font-weight: 500;
 }
 
-/* --- Ошибки валидации --- */
 .invalid-feedback {
-  color: #ff9a8a;  /* тёплый розовый — читается на тёмном */
+  color: #ff9a8a;
 }
 
 .was-validated .form-control:invalid,
@@ -204,16 +199,159 @@ body {
 
 .was-validated .form-control:valid,
 .was-validated .form-select:valid {
-  border-color: rgba(255, 255, 255, 0.3) !important;  /* не зелёная, чтобы не спорила с палитрой */
+  border-color: rgba(255, 255, 255, 0.3) !important;
 }
 
-/* --- Прижимаем футер к низу --- */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+/* ===============================================
+   Карточки
+   =============================================== */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  animation: cardFadeIn 0.5s ease-out backwards;
 }
 
-main {
-  flex: 1;
+.card:nth-child(1) { animation-delay: 0.05s; }
+.card:nth-child(2) { animation-delay: 0.1s; }
+.card:nth-child(3) { animation-delay: 0.15s; }
+.card:nth-child(4) { animation-delay: 0.2s; }
+
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow:
+    0 0 0 1px rgba(240, 90, 20, 0.5),
+    0 12px 30px rgba(240, 90, 20, 0.3),
+    0 0 40px rgba(240, 90, 20, 0.15);
+  border-color: rgba(240, 90, 20, 0.6) !important;
+}
+
+.card .card-img-top {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+/* --- Навигация: hover --- */
+.nav-link {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.nav-link:hover {
+  transform: translateY(-1px);
+}
+
+a, .btn {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+/* ===============================================
+   Каталог: sticky-фильтр
+   =============================================== */
+.catalog-filters {
+  position: sticky;
+  top: 100px;
+}
+@media (max-width: 991px) {
+  .catalog-filters { position: static; }
+}
+
+.product-card-item.is-hidden {
+  display: none !important;
+}
+
+/* ===============================================
+   Щит рядом с кнопкой «Наверх»
+   =============================================== */
+/* --- Щит рядом с кнопкой «Наверх» --- */
+.scroll-shield {
+  position: fixed;
+  bottom: 28px;
+  right: 84px;
+  width: 40px;
+  height: 40px;
+  color: #00d9ff;
+  filter:
+    drop-shadow(0 0 6px rgba(0, 217, 255, 0.9))
+    drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+  pointer-events: none;
+  z-index: 1040;
+  transition: transform 0.2s ease;
+}
+
+.scroll-shield svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@keyframes shieldHit {
+  0%   {
+    transform: scale(1) rotate(0);
+    color: #00d9ff;
+    filter: drop-shadow(0 0 6px rgba(0, 217, 255, 0.9)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+  }
+  20%  {
+    transform: scale(1.45) rotate(-12deg);
+    color: #ffffff;
+    filter: drop-shadow(0 0 24px rgba(255, 255, 255, 1)) drop-shadow(0 2px 10px rgba(0, 0, 0, 0.7));
+  }
+  50%  {
+    transform: scale(1.2) rotate(9deg);
+    color: #ffffff;
+    filter: drop-shadow(0 0 24px rgba(255, 255, 255, 1)) drop-shadow(0 2px 10px rgba(0, 0, 0, 0.7));
+  }
+  80%  {
+    transform: scale(1.05) rotate(-3deg);
+    color: #00d9ff;
+    filter: drop-shadow(0 0 14px rgba(0, 217, 255, 0.95)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+  }
+  100% {
+    transform: scale(1) rotate(0);
+    color: #00d9ff;
+    filter: drop-shadow(0 0 6px rgba(0, 217, 255, 0.9)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+  }
+}
+
+.scroll-shield.shield-hit {
+  animation: shieldHit 0.7s ease-out;
+}
+
+/* ===============================================
+   Кнопка «Наверх» — стрела
+   =============================================== */
+.scroll-top-btn {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-white) !important;
+  color: var(--color-ink) !important;
+  border: none !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 1050;
+}
+
+.scroll-top-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(240, 90, 20, 0.4);
+}
+
+.scroll-top-btn svg {
+  width: 26px;
+  height: 26px;
+  transition: transform 0.2s ease;
+}
+
+@keyframes arrowShoot {
+  0%   { transform: translateX(0)    rotate(0);    opacity: 1; }
+  40%  { transform: translateX(-40px) rotate(-90deg); opacity: 0.8; }
+  70%  { transform: translateX(-60px) rotate(-90deg); opacity: 0; }
+  71%  { transform: translateX(20px)  rotate(0);    opacity: 0; }
+  100% { transform: translateX(0)    rotate(0);    opacity: 1; }
+}
+
+.scroll-top-btn.arrow-shoot svg {
+  animation: arrowShoot 0.8s ease-in-out;
 }

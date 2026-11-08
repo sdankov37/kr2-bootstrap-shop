@@ -4,28 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Каталог игр Iron Vanguard Studios.">
-  <title>Каталог игр — Iron Vanguard Studios</title>
+  <title>Каталог — Iron Vanguard Studios</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/jelly-radio.css">
 </head>
 <body class="bg-dark text-light">
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top border-bottom border-secondary">
     <div class="container">
       <a class="navbar-brand" href="index.html">
-        <img src="images/iron_logo.png" alt="Iron Vanguard Studios" class="navbar-logo navbar-logo--lg">
+        <img src="images/iron_logo.png" alt="Iron Vanguard Studios" class="navbar-logo">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Переключить навигацию">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainNavbar">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="catalog.html">Каталог игр</a></li>
-          <li class="nav-item"><a class="nav-link" href="product.html">Игра</a></li>
-          <li class="nav-item"><a class="nav-link" href="order.html">Заявка</a></li>
-          <li class="nav-item"><a class="nav-link" href="contacts.html">О студии</a></li>
-        </ul>
+        <div class="jelly-radio mx-auto" id="mainJellyNav" role="radiogroup" aria-label="Основная навигация">
+          <button type="button" role="radio" class="jelly-radio__chip" data-href="index.html" data-on="false" aria-checked="false" tabindex="-1">
+            <span class="jelly-radio__skin"><span class="jelly-radio__label">Главная</span></span>
+          </button>
+          <button type="button" role="radio" class="jelly-radio__chip" data-href="catalog.html" data-on="false" aria-checked="false" tabindex="-1">
+            <span class="jelly-radio__skin"><span class="jelly-radio__label">Каталог</span></span>
+          </button>
+          <button type="button" role="radio" class="jelly-radio__chip" data-href="about.html" data-on="false" aria-checked="false" tabindex="-1">
+            <span class="jelly-radio__skin"><span class="jelly-radio__label">О студии</span></span>
+          </button>
+          <button type="button" role="radio" class="jelly-radio__chip" data-href="contacts.html" data-on="false" aria-checked="false" tabindex="-1">
+            <span class="jelly-radio__skin"><span class="jelly-radio__label">Контакты</span></span>
+          </button>
+        </div>
       </div>
     </div>
   </nav>
@@ -34,7 +42,7 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.html" class="text-primary">Главная</a></li>
-        <li class="breadcrumb-item active text-secondary" aria-current="page">Каталог игр</li>
+        <li class="breadcrumb-item active text-secondary" aria-current="page">Каталог</li>
       </ol>
     </nav>
 
@@ -50,30 +58,35 @@
           <form>
             <fieldset class="mb-3">
               <legend class="h6 text-secondary mb-2">Жанр</legend>
-              <div class="form-check"><input class="form-check-input" type="checkbox" id="genreRTS"><label class="form-check-label" for="genreRTS">RTS</label></div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" id="genreTurn"><label class="form-check-label" for="genreTurn">Пошаговая тактика</label></div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" id="genreMoba"><label class="form-check-label" for="genreMoba">MOBA</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="genre" value="rts" id="genreRTS"><label class="form-check-label" for="genreRTS">RTS</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="genre" value="turn" id="genreTurn"><label class="form-check-label" for="genreTurn">Пошаговая тактика</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="genre" value="strategy" id="genreStrategy"><label class="form-check-label" for="genreStrategy">Глобальная стратегия</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="genre" value="moba" id="genreMoba"><label class="form-check-label" for="genreMoba">MOBA</label></div>
             </fieldset>
             <fieldset class="mb-3">
               <legend class="h6 text-secondary mb-2">Платформа</legend>
-              <div class="form-check"><input class="form-check-input" type="radio" name="platform" id="platformPC" checked><label class="form-check-label" for="platformPC">PC</label></div>
-              <div class="form-check"><input class="form-check-input" type="radio" name="platform" id="platformConsole"><label class="form-check-label" for="platformConsole">Консоли</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="platform" value="pc" id="platformPC" checked><label class="form-check-label" for="platformPC">PC</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="platform" value="console" id="platformConsole"><label class="form-check-label" for="platformConsole">Консоли</label></div>
             </fieldset>
             <div class="mb-3">
               <label for="yearFilter" class="form-label h6 text-secondary">Год выхода</label>
               <select class="form-select bg-dark text-light border-secondary" id="yearFilter">
-                <option>Любой</option><option>2026</option><option>2025</option><option>2024</option><option>2023</option>
+                <option value="Любой">Любой</option>
+                <option value="2026">2026</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
               </select>
             </div>
-            <button type="button" class="btn btn-outline-primary w-100">Применить</button>
+            <button type="button" id="applyFilters" class="btn btn-outline-primary w-100">Применить</button>
           </form>
         </div>
       </aside>
 
       <section class="col-12 col-lg-9">
-        <div class="row g-4">
+        <div class="row g-4" id="cardsContainer">
 
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 product-card-item" data-genre="rts" data-platform="pc" data-year="2024">
             <div class="card h-100 bg-black border-secondary shadow-sm">
               <img src="images/iron_vanguard_logo.jpeg" class="card-img-top" alt="Iron Vanguard: Frontline">
               <div class="card-body d-flex flex-column">
@@ -84,16 +97,17 @@
                 <p class="card-text text-secondary small mb-2">Жанр: RTS | Платформа: PC | 2024</p>
                 <p class="card-text text-secondary flex-grow-1">Классическая RTS с упором на макроменеджмент и тактические сражения.</p>
                 <div class="d-flex gap-2 mt-3">
-                  <a class="btn btn-primary btn-sm" href="product.html">Подробнее</a>
+                  <a class="btn btn-primary btn-sm" href="product-iron-vanguard.html">Подробнее</a>
                   <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#gameModal"
                     data-title="Iron Vanguard: Frontline"
-                    data-desc="Классическая RTS с упором на макроменеджмент и тактические сражения.">Кратко</button>
+                    data-desc="Классическая RTS с упором на макроменеджмент и тактические сражения."
+                    data-url="product-iron-vanguard.html">Кратко</button>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 product-card-item" data-genre="turn" data-platform="pc" data-year="2025">
             <div class="card h-100 bg-black border-secondary shadow-sm">
               <img src="images/shadow_protocol_logo.jpeg" class="card-img-top" alt="Shadow Protocol">
               <div class="card-body d-flex flex-column">
@@ -107,13 +121,14 @@
                   <a class="btn btn-primary btn-sm" href="product.html">Подробнее</a>
                   <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#gameModal"
                     data-title="Shadow Protocol"
-                    data-desc="Тактика про элитный отряд спецназа. Каждый выстрел на счету.">Кратко</button>
+                    data-desc="Тактика про элитный отряд спецназа. Каждый выстрел на счету."
+                    data-url="product.html">Кратко</button>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 product-card-item" data-genre="strategy" data-platform="pc" data-year="2026">
             <div class="card h-100 bg-black border-secondary shadow-sm">
               <img src="images/empire_of_steel_logo.jpeg" class="card-img-top" alt="Empire of Steel">
               <div class="card-body d-flex flex-column">
@@ -124,16 +139,17 @@
                 <p class="card-text text-secondary small mb-2">Жанр: Глобальная стратегия | Платформа: PC | 2026</p>
                 <p class="card-text text-secondary flex-grow-1">Управляйте империей, заключайте союзы и ведите войны на протяжении веков.</p>
                 <div class="d-flex gap-2 mt-3">
-                  <a class="btn btn-primary btn-sm" href="product.html">Подробнее</a>
+                  <a class="btn btn-primary btn-sm" href="product-empire-of-steel.html">Подробнее</a>
                   <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#gameModal"
                     data-title="Empire of Steel"
-                    data-desc="Управляйте империей, заключайте союзы и ведите войны на протяжении веков.">Кратко</button>
+                    data-desc="Управляйте империей, заключайте союзы и ведите войны на протяжении веков."
+                    data-url="product-empire-of-steel.html">Кратко</button>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 product-card-item" data-genre="moba" data-platform="pc" data-year="2023">
             <div class="card h-100 bg-black border-secondary shadow-sm">
               <img src="images/arena_of_legends_logo.jpeg" class="card-img-top" alt="Arena of Legends">
               <div class="card-body d-flex flex-column">
@@ -144,21 +160,25 @@
                 <p class="card-text text-secondary small mb-2">Жанр: MOBA | Платформа: PC | 2023</p>
                 <p class="card-text text-secondary flex-grow-1">Динамичная MOBA с уникальными механиками и героями.</p>
                 <div class="d-flex gap-2 mt-3">
-                  <a class="btn btn-primary btn-sm" href="product.html">Подробнее</a>
+                  <a class="btn btn-primary btn-sm" href="product-arena-of-legends.html">Подробнее</a>
                   <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#gameModal"
                     data-title="Arena of Legends"
-                    data-desc="Динамичная MOBA с уникальными механиками и героями.">Кратко</button>
+                    data-desc="Динамичная MOBA с уникальными механиками и героями."
+                    data-url="product-arena-of-legends.html">Кратко</button>
                 </div>
               </div>
             </div>
           </div>
 
         </div>
+
+        <div id="noResults" class="alert alert-warning d-none mt-4" role="alert">
+          По выбранным фильтрам игр не найдено. Попробуйте изменить параметры.
+        </div>
       </section>
     </div>
   </main>
 
-  <!-- Модальное окно с краткой информацией об игре -->
   <div class="modal fade" id="gameModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content bg-dark text-light border-secondary">
@@ -169,7 +189,7 @@
         <div class="modal-body"><p id="modalDesc">Описание игры...</p></div>
         <div class="modal-footer border-secondary">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-          <a href="product.html" class="btn btn-primary">Перейти на страницу</a>
+          <a href="catalog.html" class="btn btn-primary">Перейти на страницу</a>
         </div>
       </div>
     </div>
@@ -177,22 +197,47 @@
 
   <footer class="bg-black py-4 border-top border-secondary">
     <div class="container">
-      <div class="row align-items-center g-3">
-        <div class="col-12 col-md-6">
-          <p class="mb-0 text-secondary">&copy; 2026 Iron Vanguard Studios. Все права защищены.</p>
+      <div class="row align-items-start g-4">
+        <div class="col-12 col-md-2 text-center text-md-start">
+          <a class="navbar-brand d-inline-block" href="index.html">
+            <img src="images/iron_logo.png" alt="Iron Vanguard Studios" class="navbar-logo">
+          </a>
         </div>
-        <div class="col-12 col-md-6 text-md-end">
-          <a href="catalog.html" class="text-secondary text-decoration-none me-3">Каталог</a>
-          <a href="order.html" class="text-secondary text-decoration-none me-3">Заявка</a>
-          <a href="contacts.html" class="text-secondary text-decoration-none">О студии</a>
+        <div class="col-12 col-md-3">
+          <p class="mb-0 text-secondary small">&copy; 2026 Iron Vanguard Studios.<br>Все права защищены.</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <p class="mb-1 text-secondary small">🏠 г. Москва, ул. Игровая, д. 15</p>
+          <p class="mb-1 text-secondary small">📇 contact@ironvanguard.com</p>
+          <p class="mb-1 text-secondary small">📞 +7 (999) 123-45-67</p>
+          <p class="mb-0 text-secondary small">🈺 Рабочие часы с 🕙10:00 до 🕛00:00 по рабочим дням</p>
+        </div>
+        <div class="col-12 col-md-3">
+          <p class="mb-1 text-secondary small">Навигация по сайту:</p>
+          <ul class="list-unstyled mb-0 small">
+            <li><a href="catalog.html" class="text-secondary text-decoration-none">Каталог</a></li>
+            <li><a href="about.html" class="text-secondary text-decoration-none">О студии</a></li>
+            <li><a href="contacts.html" class="text-secondary text-decoration-none">Контакты</a></li>
+          </ul>
         </div>
       </div>
     </div>
   </footer>
 
-  <button id="scrollTopBtn" class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-4 d-none scroll-top-btn" style="width: 50px; height: 50px;">↑</button>
+  <div class="scroll-shield d-none" id="navbarShield" aria-hidden="true">
+    <svg viewBox="0 0 32 40" xmlns="http://www.w3.org/2000/svg" fill="currentColor" fill-rule="evenodd">
+      <path d="M16 2 L28 6 L28 20 Q28 33 16 38 Q4 33 4 20 L4 6 Z M15 10 L17 10 L17 18 L24 18 L24 20 L17 20 L17 30 L15 30 L15 20 L8 20 L8 18 L15 18 Z"/>
+    </svg>
+  </div>
+
+  <button id="scrollTopBtn" class="btn rounded-circle position-fixed bottom-0 end-0 m-4 d-none scroll-top-btn" style="width: 52px; height: 52px;" aria-label="Наверх">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 20V4M6 10l6-6 6 6"/>
+    </svg>
+  </button>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/jelly-radio.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
