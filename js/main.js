@@ -1,21 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. Модалка с информацией об игре
+  // 1. Модалка
   const gameModal = document.getElementById('gameModal');
   if (gameModal) {
     gameModal.addEventListener('show.bs.modal', (event) => {
       const btn = event.relatedTarget;
       if (!btn) return;
-
       gameModal.querySelector('.modal-title').textContent = btn.getAttribute('data-title') || '';
       gameModal.querySelector('#modalDesc').textContent = btn.getAttribute('data-desc') || '';
-
       const modalLink = gameModal.querySelector('.modal-footer a');
       if (modalLink) modalLink.href = btn.getAttribute('data-url') || 'catalog.html';
     });
   }
 
-  // 2. Валидация формы ЗБТ / заявки на страницах игр
+  // 2. Форма ЗБТ / заявки
   const betaForm = document.getElementById('betaForm');
   if (betaForm) {
     betaForm.addEventListener('submit', (event) => {
@@ -23,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
       event.stopPropagation();
       const successAlert = document.getElementById('formSuccess');
       const errorAlert = document.getElementById('formError');
-
       if (!betaForm.checkValidity()) {
         betaForm.classList.add('was-validated');
         if (errorAlert) errorAlert.classList.remove('d-none');
@@ -38,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Валидация формы заявки на order.html
+  // 3. Форма заявки
   const orderForm = document.getElementById('orderForm');
   if (orderForm) {
     orderForm.addEventListener('submit', (event) => {
@@ -46,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
       event.stopPropagation();
       const successAlert = document.getElementById('orderSuccess');
       const errorAlert = document.getElementById('orderError');
-
       if (!orderForm.checkValidity()) {
         orderForm.classList.add('was-validated');
         if (errorAlert) errorAlert.classList.remove('d-none');
@@ -61,29 +57,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Фильтр в каталоге
+  // 4. Фильтр каталога
   const applyFiltersBtn = document.getElementById('applyFilters');
   if (applyFiltersBtn) {
     applyFiltersBtn.addEventListener('click', () => {
       const checkedGenres = Array.from(
         document.querySelectorAll('input[name="genre"]:checked')
       ).map(el => el.value);
-
       const selectedPlatform = document.querySelector('input[name="platform"]:checked')?.value;
       const selectedYear = document.getElementById('yearFilter').value;
-
       const cards = document.querySelectorAll('.product-card-item');
       let visibleCount = 0;
-
       cards.forEach(card => {
-        const cardGenre = card.dataset.genre;
-        const cardPlatform = card.dataset.platform;
-        const cardYear = card.dataset.year;
-
-        const genreMatch = checkedGenres.length === 0 || checkedGenres.includes(cardGenre);
-        const platformMatch = !selectedPlatform || cardPlatform === selectedPlatform;
-        const yearMatch = !selectedYear || selectedYear === 'Любой' || cardYear === selectedYear;
-
+        const genreMatch = checkedGenres.length === 0 || checkedGenres.includes(card.dataset.genre);
+        const platformMatch = !selectedPlatform || card.dataset.platform === selectedPlatform;
+        const yearMatch = !selectedYear || selectedYear === 'Любой' || card.dataset.year === selectedYear;
         if (genreMatch && platformMatch && yearMatch) {
           card.classList.remove('is-hidden');
           visibleCount++;
@@ -91,20 +79,16 @@ document.addEventListener('DOMContentLoaded', () => {
           card.classList.add('is-hidden');
         }
       });
-
       const noResults = document.getElementById('noResults');
       if (noResults) noResults.classList.toggle('d-none', visibleCount > 0);
     });
   }
 
-  // 5. Кнопка «Наверх» — стрела и щит
+  // 5. Кнопка «Наверх» + щит
   const scrollTopBtn = document.getElementById('scrollTopBtn');
   const navbarShield = document.getElementById('navbarShield');
 
   if (scrollTopBtn) {
-
-    // Проверка: пользователь у самого низа страницы?
-    // Запас в 100px — чтобы не нужно было скроллить до пикселя
     const isNearBottom = () => {
       const scrollTop = window.scrollY || window.pageYOffset;
       const windowHeight = window.innerHeight;
@@ -112,17 +96,13 @@ document.addEventListener('DOMContentLoaded', () => {
       return scrollTop + windowHeight >= docHeight - 100;
     };
 
-    // Показ при загрузке (если пользователь уже внизу — например, по якорю)
     if (isNearBottom()) {
       scrollTopBtn.classList.remove('d-none');
       if (navbarShield) navbarShield.classList.remove('d-none');
     }
 
-    // Показ/скрытие при скролле
     window.addEventListener('scroll', () => {
-      // Пока идёт анимация «выстрела» — не трогаем видимость
       if (scrollTopBtn.classList.contains('animating')) return;
-
       if (isNearBottom()) {
         scrollTopBtn.classList.remove('d-none');
         if (navbarShield) navbarShield.classList.remove('d-none');
@@ -132,27 +112,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Клик по стреле
     scrollTopBtn.addEventListener('click', () => {
-      // Защита от повторных кликов во время анимации
       if (scrollTopBtn.classList.contains('animating')) return;
       scrollTopBtn.classList.add('animating');
-
-      // 1. Стрела «летит» (CSS-анимация arrow-shoot)
       scrollTopBtn.classList.add('arrow-shoot');
-
-      // 2. Через 350мс — стрела «долетела», щит вспыхивает
-      setTimeout(() => {
-        if (navbarShield) navbarShield.classList.add('shield-hit');
-      }, 350);
-
-      // 3. Через 700мс — запускаем плавный скролл наверх
-      //    (после того как пользователь увидел попадание)
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 700);
-
-      // 4. Через 1100мс — анимации закончились, скрываем оба элемента
+      setTimeout(() => { if (navbarShield) navbarShield.classList.add('shield-hit'); }, 350);
+      setTimeout(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, 700);
       setTimeout(() => {
         scrollTopBtn.classList.remove('arrow-shoot', 'animating');
         if (navbarShield) navbarShield.classList.remove('shield-hit');
@@ -161,4 +126,81 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1100);
     });
   }
+
+  // 6. Анимация счётчиков достижений
+  const achievementsSection = document.getElementById('achievements');
+  if (achievementsSection) {
+    const counters = achievementsSection.querySelectorAll('[data-count]');
+    const animateNumber = (el) => {
+      const raw = el.dataset.count;
+      const target = parseFloat(raw);
+      const suffix = el.dataset.suffix || '';
+      const decimals = raw.includes('.') ? raw.split('.')[1].length : 0;
+      const duration = 1600;
+      const start = performance.now();
+
+      const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = target * eased;
+        el.textContent = current.toFixed(decimals) + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            counters.forEach(animateNumber);
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+      observer.observe(achievementsSection);
+    } else {
+      counters.forEach(animateNumber);
+    }
+  }
 });
+
+// ============================================================
+// Анимация счётчиков достижений на странице about.html
+// ============================================================
+const achievementsSection = document.getElementById('achievements');
+if (achievementsSection) {
+  const counters = achievementsSection.querySelectorAll('[data-count]');
+
+  const animateNumber = (el) => {
+    const raw = el.dataset.count;
+    const target = parseFloat(raw);
+    const suffix = el.dataset.suffix || '';
+    const decimals = raw.includes('.') ? raw.split('.')[1].length : 0;
+    const duration = 1600;
+    const start = performance.now();
+
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+      const current = target * eased;
+      el.textContent = current.toFixed(decimals) + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          counters.forEach(animateNumber);
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(achievementsSection);
+  } else {
+    counters.forEach(animateNumber);
+  }
+}

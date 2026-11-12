@@ -352,3 +352,70 @@ a, .btn {
 .scroll-top-btn.arrow-shoot svg {
   animation: arrowShoot 0.8s ease-in-out;
 }
+
+/* --- Sticky footer --- */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main { flex: 1; }
+
+/* --- Достижения: счётчик --- */
+.achievement-number {
+  font-variant-numeric: tabular-nums;
+  color: #ffd0b8 !important;
+  line-height: 1;
+}
+
+/* --- Главная: 3 экрана --- */
+.screen-section {
+  display: flex;
+  align-items: center;
+  min-height: 70vh;
+  padding: 4rem 0;
+}
+@media (max-width: 991.98px) {
+  .screen-section { min-height: auto; padding: 2rem 0; }
+}
+
+/* --- Обёртка для SVG-иллюстраций --- */
+.art-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Карточка с SVG-обложкой --- */
+.card-img-svg {
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border-top-left-radius: calc(var(--bs-border-radius) - 2px);
+  border-top-right-radius: calc(var(--bs-border-radius) - 2px);
+}
+.card-img-svg svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* --- Full-bleed секция --- */
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Убираем горизонтальный скролл от 100vw */
+body {
+  overflow-x: hidden;
+}
+
+/* Чуть больше воздуха внутри секции, чтобы карточки не прилипали к краю */
+.full-bleed .row {
+  padding: 0 1rem;
+}

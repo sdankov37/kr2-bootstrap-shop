@@ -38,39 +38,154 @@
     </div>
   </nav>
 
-  <header class="hero d-flex align-items-center text-white text-center">
-    <div class="container py-5">
-      <h1 class="display-4 fw-bold mb-3">Создаём будущее тактических стратегий</h1>
-      <p class="lead mb-4">Iron Vanguard Studios — независимая студия, разрабатывающая RTS и пошаговые тактики с уникальным лором.</p>
-      <a href="catalog.html" class="btn btn-primary btn-lg px-5">Смотреть игры</a>
-      <a href="#popular" class="btn btn-outline-light btn-lg px-5 ms-2">Популярное</a>
-    </div>
-  </header>
+ <header class="hero hero--full d-flex align-items-center text-white text-center">
+  <div class="container py-5">
+    <h1 class="display-3 fw-bold mb-4">Создаём будущее тактических стратегий</h1>
+    <p class="lead mb-4">Iron Vanguard Studios — независимая студия, разрабатывающая RTS и пошаговые тактики с уникальным лором.</p>
+    <a href="catalog.html" class="btn btn-primary btn-lg px-5">Смотреть игры</a>
+    <a href="#advantages" class="btn btn-outline-light btn-lg px-5 ms-2">Узнать больше</a>
+  </div>
+</header>
 
   <main>
-    <section class="container my-5">
-      <h2 class="text-center mb-4">Преимущества студии</h2>
-      <div class="row g-4">
-        <div class="col-12 col-md-4">
-          <div class="p-4 border border-secondary rounded h-100 bg-black">
-            <h3 class="h5">Глубокий геймплей</h3>
-            <p class="mb-0 text-secondary">Каждая игра — это система, где победа зависит от стратегии, а не от скорости кликов.</p>
+<section class="screen-section" id="advantages">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-12 col-lg-6">
+        <h2 class="h1 fw-bold mb-4">Игры, где решает расчёт</h2>
+        <p class="lead text-secondary mb-4">Мы делаем стратегии, в которых победа зависит от тактики, а не от скорости кликов.</p>
+        <div class="row g-3">
+          <div class="col-12">
+            <div class="p-4 border border-secondary rounded bg-black">
+              <h3 class="h5">Глубокий геймплей</h3>
+              <p class="mb-0 text-secondary">Каждая игра — это система с множеством переменных и последствий.</p>
+            </div>
           </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="p-4 border border-secondary rounded h-100 bg-black">
-            <h3 class="h5">Комьюнити</h3>
-            <p class="mb-0 text-secondary">Игроки участвуют в тестировании и влияют на баланс.</p>
+          <div class="col-12 col-md-6">
+            <div class="p-4 border border-secondary rounded bg-black h-100">
+              <h3 class="h5">Комьюнити</h3>
+              <p class="mb-0 text-secondary">Игроки влияют на баланс через открытые беты.</p>
+            </div>
           </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="p-4 border border-secondary rounded h-100 bg-black">
-            <h3 class="h5">Опыт с 2018 года</h3>
-            <p class="mb-0 text-secondary">4 выпущенные игры, 1.5 млн игроков, 12 наград.</p>
+          <div class="col-12 col-md-6">
+            <div class="p-4 border border-secondary rounded bg-black h-100">
+              <h3 class="h5">С 2018 года</h3>
+              <p class="mb-0 text-secondary">4 игры, 1.5 млн игроков, 12 наград.</p>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+      <div class="col-12 col-lg-6">
+        <!-- Multicolor SVG: тактическая карта -->
+        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" class="art-svg" role="img" aria-label="Тактическая карта">
+          <defs>
+            <linearGradient id="advBg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#1a0a05"/>
+              <stop offset="1" stop-color="#7a1a0a"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="600" fill="url(#advBg)"/>
+          <circle cx="200" cy="150" r="220" fill="#f05a14" opacity="0.12"/>
+          <circle cx="620" cy="460" r="180" fill="#bb280e" opacity="0.2"/>
+          <g stroke="#f05a14" stroke-opacity="0.2" stroke-width="1">
+            <line x1="0" y1="150" x2="800" y2="150"/>
+            <line x1="0" y1="300" x2="800" y2="300"/>
+            <line x1="0" y1="450" x2="800" y2="450"/>
+            <line x1="200" y1="0" x2="200" y2="600"/>
+            <line x1="400" y1="0" x2="400" y2="600"/>
+            <line x1="600" y1="0" x2="600" y2="600"/>
+          </g>
+          <path d="M140 280 Q220 220 320 260 T480 280 T620 240 T740 300 L720 430 Q600 480 480 460 T300 490 T160 440 Z"
+                fill="#bb280e" fill-opacity="0.35" stroke="#f05a14" stroke-width="2"/>
+          <g fill="#ffd0b8">
+            <circle cx="280" cy="340" r="10"/>
+            <circle cx="460" cy="300" r="10"/>
+            <circle cx="600" cy="380" r="10"/>
+            <circle cx="360" cy="430" r="10"/>
+          </g>
+          <g stroke="#f05a14" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.7">
+            <line x1="280" y1="340" x2="460" y2="300"/>
+            <line x1="460" y1="300" x2="600" y2="380"/>
+            <line x1="280" y1="340" x2="360" y2="430"/>
+            <line x1="360" y1="430" x2="600" y2="380"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="screen-section" id="roadmap">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="h1 fw-bold mb-0">Что дальше</h2>
+      <a class="btn btn-outline-primary" href="catalog.html">Все проекты</a>
+    </div>
+    <p class="lead text-secondary mb-4">Над чем сейчас работает студия</p>
+
+    <div class="row g-4">
+      <div class="col-12">
+        <div class="card h-100 bg-black border-secondary shadow-sm">
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <h3 class="card-title h5 mb-0 text-white">Shadow Protocol</h3>
+              <span class="badge bg-warning text-dark">ЗБТ</span>
+            </div>
+            <p class="card-text text-secondary mb-3">Пошаговая тактика про элитный отряд спецназа.</p>
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between small text-secondary mb-1">
+                <span>Готовность</span><span>60%</span>
+              </div>
+              <div class="progress" style="height: 8px;" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar bg-warning" style="width: 60%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="card h-100 bg-black border-secondary shadow-sm">
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <h3 class="card-title h5 mb-0 text-white">Empire of Steel</h3>
+              <span class="badge bg-info text-dark">2026</span>
+            </div>
+            <p class="card-text text-secondary mb-3">Глобальная стратегия с экономикой и дипломатией.</p>
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between small text-secondary mb-1">
+                <span>Готовность</span><span>35%</span>
+              </div>
+              <div class="progress" style="height: 8px;" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar bg-info" style="width: 35%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="card h-100 bg-black border-secondary shadow-sm">
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <h3 class="card-title h5 mb-0 text-white">Project Apex</h3>
+              <span class="badge bg-secondary text-dark">Анонс</span>
+            </div>
+            <p class="card-text text-secondary mb-3">Новый жанр в разработке. Подробности в 2027.</p>
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between small text-secondary mb-1">
+                <span>Готовность</span><span>15%</span>
+              </div>
+              <div class="progress" style="height: 8px;" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar bg-secondary" style="width: 15%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section class="container my-5" id="popular">
       <div class="d-flex justify-content-between align-items-center mb-4">
@@ -168,21 +283,22 @@
           </a>
         </div>
         <div class="col-12 col-md-3">
-          <p class="mb-0 text-secondary small">&copy; 2026 Iron Vanguard Studios.<br>Все права защищены.</p>
-        </div>
-        <div class="col-12 col-md-4">
-          <p class="mb-1 text-secondary small">🏠 г. Москва, ул. Игровая, д. 15</p>
-          <p class="mb-1 text-secondary small">📇 contact@ironvanguard.com</p>
-          <p class="mb-1 text-secondary small">📞 +7 (999) 123-45-67</p>
-          <p class="mb-0 text-secondary small">🈺 Рабочие часы с 🕙10:00 до 🕛00:00 по рабочим дням</p>
+          <p class="mb-0 text-secondary small">&copy; 2026 Iron Vanguard Studios.<br>Создаем будущее тактических стратегий<br>Все права защищены.</p>
         </div>
         <div class="col-12 col-md-3">
-          <p class="mb-1 text-secondary small">Навигация по сайту:</p>
+          <p class="mb-1 text">Навигация по сайту:</p>
           <ul class="list-unstyled mb-0 small">
+            <li><a href="index.html" class="text-secondary text-decoration-none">Главная</a></li>
             <li><a href="catalog.html" class="text-secondary text-decoration-none">Каталог</a></li>
             <li><a href="about.html" class="text-secondary text-decoration-none">О студии</a></li>
-            <li><a href="contacts.html" class="text-secondary text-decoration-none">Контакты</a></li>
           </ul>
+        </div>
+        <div class="col-12 col-md-4">
+          <p class="mb-0 text">Контактные данные</p>
+          <p class="mb-1 text-secondary small">🏠 г. Москва, ул. Игровая, д. 15</p>
+          <p class="mb-1 text-secondary small">📞 +7 (999) 123-45-67</p>
+          <p class="mb-1 text-secondary small">📇 contact@ironvanguard.com</p>
+          <p class="mb-0 text-secondary small">🈺 Рабочие часы с 🕙10:00 до 🕛00:00 по рабочим дням</p>
         </div>
       </div>
     </div>
