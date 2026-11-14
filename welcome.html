@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Добро пожаловать на сайт Iron Vanguard Studios — независимой студии тактических стратегий.">
+  <title>Добро пожаловать — Iron Vanguard Studios</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/jelly-radio.css">
+  <style>
+    .welcome-hero {
+      min-height: calc(100vh - 76px);
+      display: flex; align-items: center;
+      padding: 3rem 0;
+    }
+    .welcome-title {
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .welcome-title span { color: #ffd0b8; }
+    .welcome-lead {
+      font-size: clamp(1rem, 1.6vw, 1.25rem);
+      max-width: 640px;
+      margin: 0 auto 2rem;
+    }
+    .welcome-card {
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+      text-decoration: none; color: inherit;
+      display: block;
+    }
+    .welcome-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(240,90,20,.6) !important;
+      box-shadow: 0 12px 30px rgba(240,90,20,.25);
+    }
+    .welcome-card__icon {
+      font-size: 2rem;
+      margin-bottom: .75rem;
+    }
+    .welcome-enter {
+      font-size: 1.15rem;
+      padding: .9rem 2.5rem;
+      font-weight: 600;
+    }
+    .welcome-opt {
+      margin-top: 1.25rem;
+      font-size: .9rem;
+      color: rgba(255,255,255,.7);
+    }
+  </style>
+</head>
+<body class="bg-dark text-light">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top border-bottom border-secondary">
+    <div class="container">
+      <a class="navbar-brand" href="welcome.html">
+        <img src="images/iron_logo.png" alt="Iron Vanguard Studios" class="navbar-logo">
+      </a>
+      <a href="index.html" class="btn btn-primary btn-sm px-3" data-enter>Войти на сайт</a>
+    </div>
+  </nav>
+
+  <main class="welcome-hero">
+    <div class="container text-center">
+
+      <h1 class="welcome-title mb-3">
+        Здравствуйте!<br>
+        <span>Добро пожаловать</span>
+      </h1>
+
+      <p class="lead text-secondary welcome-lead">
+        Вы на сайте <strong>Iron Vanguard Studios</strong> — независимой студии
+        тактических стратегий и RTS. Мы делаем игры, где победа зависит
+        от расчёта, а не от скорости кликов.
+      </p>
+
+      <div class="row g-3 g-md-4 justify-content-center mb-4" style="max-width: 900px; margin: 0 auto;">
+
+        <div class="col-12 col-md-4">
+          <a class="welcome-card p-4 border border-secondary rounded bg-black h-100" href="index.html" data-enter>
+            <div class="welcome-card__icon">🎮</div>
+            <h2 class="h5 mb-1">Каталог игр</h2>
+            <p class="text-secondary small mb-0">RTS, тактики, MOBA и секретные проекты</p>
+          </a>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <a class="welcome-card p-4 border border-secondary rounded bg-black h-100" href="about.html" data-enter>
+            <div class="welcome-card__icon">🏛️</div>
+            <h2 class="h5 mb-1">О студии</h2>
+            <p class="text-secondary small mb-0">История, команда, принципы и достижения</p>
+          </a>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <a class="welcome-card p-4 border border-secondary rounded bg-black h-100" href="contacts.html" data-enter>
+            <div class="welcome-card__icon">📞</div>
+            <h2 class="h5 mb-1">Контакты</h2>
+            <p class="text-secondary small mb-0">Адрес, телефон, почта и карта</p>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="d-flex flex-column align-items-center gap-3">
+        <a href="index.html" class="btn btn-primary welcome-enter" data-enter>
+          Войти на сайт →
+        </a>
+        <button type="button" class="btn btn-link text-secondary btn-sm text-decoration-none" data-skip>
+          Больше не показывать
+        </button>
+      </div>
+
+      <p class="welcome-opt mt-4 mb-0">
+        Сайт — не интернет-магазин: здесь мы презентуем игры и собираем заявки на закрытые бета-тесты.
+      </p>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Клик по любой ссылке/кнопке с data-enter или data-skip ставит флаг
+    document.querySelectorAll('[data-enter], [data-skip]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        try { localStorage.setItem('iron_welcomed', '1'); } catch (e) {}
+      });
+    });
+  </script>
+</body>
+</html>
